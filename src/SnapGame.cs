@@ -19,27 +19,28 @@ namespace CardGames
 		/// <param name="myGame">The game object to update in response to events.</param>
 		private static void HandleUserInput(Snap myGame)
 		{
-			//Fetch the next batch of UI interaction 
+			//Fetch the next batch of UI interaction
 			SwinGame.ProcessEvents();
-			if (SwinGame.KeyTyped(KeyCode.vk_SPACE))
+
+			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
 			{
-				myGame.FlipNextCard();
+				myGame.FlipNextCard ();
 			}
+
 			if (myGame.IsStarted)
-			{
-				if (SwinGame.KeyTyped(KeyCode.vk_LSHIFT) && SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
+            {
+				if ( SwinGame.KeyTyped (KeyCode.vk_LSHIFT) &&
+					 SwinGame.KeyTyped (KeyCode.vk_RSHIFT))
 				{
-					//TODO: add sound effects 
+					//TODO: add sound effects
 				}
-				else if (SwinGame.KeyTyped(KeyCode.vk_LSHIFT))
+				else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT))
 				{
 					myGame.PlayerHit(0);
 				}
-				else if (SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
-				{
+				else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT))
 					myGame.PlayerHit(1);
-				}
-			}
+            }
 		}
 
 		/// <summary>
